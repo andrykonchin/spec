@@ -99,6 +99,22 @@ describe "SystemCallError.new" do
     SystemCallError.new(-1).message.should =~ /Unknown error(:)? -1/
   end
 
+  it "sets an 'unknown error' message when an unknown error number 1" do
+    SystemCallError.new(1).message.should =~ /Unknown error(:)? -1/
+  end
+
+  it "sets an 'unknown error' message when an unknown error number 12" do
+    SystemCallError.new(12).message.should =~ /Unknown error(:)? -1/
+  end
+
+  it "sets an 'unknown error' message when an unknown error number 33" do
+    SystemCallError.new(33).message.should =~ /Unknown error(:)? -1/
+  end
+
+  it "sets an 'unknown error' message when an unknown error number 44" do
+    SystemCallError.new(44).message.should =~ /Unknown error(:)? -1/
+  end
+
   it "adds a custom error message to an 'unknown error' message when an unknown error number and a custom message specified" do
     SystemCallError.new("custom message", -1).message.should =~ /Unknown error(:)? -1 - custom message/
   end
